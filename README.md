@@ -1,10 +1,11 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:011842,100:ffffff&height=140&section=header&text=Jo%C3%A3o%20Victor%20Souza&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Junior%20Fullstack%20Developer%20%C2%B7%20LegalTech&descSize=16&descAlignY=58" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:011842,50:011842,100:ecab23&height=140&section=header&text=Jo%C3%A3o%20Victor%20Souza&fontSize=38&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Junior%20Fullstack%20Developer%20%C2%B7%20LegalTech&descSize=16&descAlignY=58" width="100%" />
 
 <div align="center">
 
 <a href="https://www.linkedin.com/in/joao-crivoi-souza/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" /></a>
 <img src="https://img.shields.io/badge/S%C3%A3o%20Paulo,%20BR-011842?style=flat-square&logo=googlemaps&logoColor=white" />
 <a href="https://www.linkedin.com/company/adiantajus"><img src="https://img.shields.io/badge/Adianta%20Jus-ecab23?style=flat-square&labelColor=011842" /></a>
+<a href="https://github.com/Joao-Crivoi"><img src="https://img.shields.io/badge/Personal%20projects-@Joao--Crivoi-011842?style=flat-square&logo=github&logoColor=white" /></a>
 
 </div>
 
@@ -58,23 +59,51 @@ and I'm part of the ongoing migration of the product toward a more scalable arch
 
 ---
 
-### What I've been working on
+### Selected work
 
-- **Architecture migration** — progressively moving a legacy codebase to a layered
-  `route → controller → service` backend, one shared Zod schema per entity across the whole chain,
-  and reusable UI components instead of copy-paste.
-- **AI document pipeline** — improved accuracy and reliability of automated document analysis.
-- **Refactoring "vibe-coded" code** — decoupling and generalizing existing modules for readability,
-  semantic consistency and alignment with SOLID.
-- **Security & performance** — found unnoticed gaps in resource ownership and rate limiting, and
-  moved a critical heavy feature to asynchronous jobs.
+- **Fixed an OOM crash in the document pipeline** — a container was being killed (`exit 137`)
+  while processing a *single* job, because every file was buffered in memory at once. Rewrote it to
+  stream through disk, which brought the feature back inside its memory budget.
+- **Moved a critical heavy feature off the request path** — introduced an asynchronous job queue
+  (pg-boss over PostgreSQL) with per-queue concurrency limits, so a long document routine no longer
+  blocks the user or the container. Praised internally as the fix that made the feature usable.
+- **Closed security gaps nobody had noticed** — missing resource-ownership checks and absent
+  rate limiting on endpoints that could be reached outside the caller's scope.
+- **Improved the AI document-extraction pipeline** — better accuracy and reliability when reading
+  parties and lawyers out of court documents, cutting the manual correction step.
+- **Architecture migration, continuously** — legacy code progressively moved to a layered
+  `route → controller → service` backend, with **one shared Zod schema per entity** travelling the
+  whole chain (store → form → hook → controller → service) instead of a type here and an interface
+  there, plus reusable UI components in place of copy-paste.
+
+---
+
+### Education & languages
+
+- **Systems Analysis and Development** — IFSP (Instituto Federal de São Paulo)
+- **Information Technician** — IFMA (Instituto Federal do Maranhão)
+- ![Portuguese](https://img.shields.io/badge/Portuguese-Native-011842?style=flat-square)
+![English](https://img.shields.io/badge/English-C2-ecab23?style=flat-square&labelColor=011842)
 
 ---
 
 <div align="center">
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=joao-victor-crivoi&show_icons=true&hide_border=true&include_all_commits=true&count_private=true&hide=issues&bg_color=ffffff&title_color=011842&icon_color=ecab23&text_color=1e293b" />
 <img height="165" src="https://streak-stats.demolab.com/?user=joao-victor-crivoi&hide_border=true&background=ffffff&ring=011842&fire=ecab23&currStreakLabel=011842&stroke=e2e8f0&sideLabels=1e293b&dates=64748b" />
+
+</div>
+
+---
+
+### Let's talk
+
+<div align="center">
+
+<a href="https://www.linkedin.com/in/joao-crivoi-souza/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" /></a>
+<a href="mailto:joaocrivoi13@gmail.com"><img src="https://img.shields.io/badge/Email-011842?style=for-the-badge&logo=gmail&logoColor=white" /></a>
+<a href="https://github.com/Joao-Crivoi"><img src="https://img.shields.io/badge/Personal%20GitHub-ecab23?style=for-the-badge&logo=github&logoColor=011842&labelColor=011842" /></a>
+
+<sub>Open to connect — always up for a conversation.</sub>
 
 </div>
 
